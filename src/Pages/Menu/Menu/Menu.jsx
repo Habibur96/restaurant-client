@@ -1,13 +1,12 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import Cover from "../../Shared/Cover/Cover";
-// import PopularMenu from "../../Home/PopularMenu/PopularMenu";
 import menuImg from "../../../assets/menu/menu-bg.jpg";
 import pizzaImg from "../../../assets/menu/pizza-bg.jpg";
 import saladImg from "../../../assets/menu/salad-bg.jpg";
 import soupImg from "../../../assets/menu/soup-bg.jpg";
 import dessertImg from "../../../assets/menu/dessert-bg.jpeg";
-import useMenu from "../../../Hooks/UseHooks";
+import useMenu from "../../../Hooks/UseMenu";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import MenuCategory from "../../Shared/Cover/MenuCategory/MenuCategory";
 

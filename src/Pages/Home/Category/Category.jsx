@@ -31,7 +31,7 @@ const Category = () => {
           </h3>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={slide2} alt="" />{" "}
+          <img src={slide2} alt="" />
           <h3 className="text-white text-4xl uppercase -mt-16 text-center">
             Pizza
           </h3>
