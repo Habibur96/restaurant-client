@@ -19,6 +19,7 @@ const FoodCard = ({ item }) => {
         price,
         email: user.email,
       };
+
       fetch("http://localhost:5000/carts", {
         method: "post",
         headers: {

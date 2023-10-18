@@ -10,6 +10,7 @@ import Secret from "../Pages/Secret/Secret";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import MyCart from "../Pages/Dashboard/Mycart/Mycart";
 import Dashboard from "../Layout/Dashboard";
+import AllUsers from "../Layout/AllUsers/AllUsers";
 // import Test from "../Pages/Home/Banner/test";
 
 export const router = createBrowserRouter([
@@ -63,6 +64,10 @@ export const router = createBrowserRouter([
       {
         path: "mycart",
         element: <MyCart></MyCart>,
+      },
+      {
+        path: "allusers",
+        element: <AllUsers></AllUsers>,
       },
     ],
   },

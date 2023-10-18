@@ -11,7 +11,7 @@ const MyCart = () => {
   const handleDelete = (item) => {
     Swal.fire({
       title: "Are you sure?",
-      text: "You won't be able to revert this!",
+      // text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -26,7 +26,7 @@ const MyCart = () => {
           .then((data) => {
             if (data.deletedCount > 0) {
               refetch();
-              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              Swal.fire("Deleted!", `${item.name} has been deleted.`, "success");
             }
           });
       }
