@@ -8,9 +8,11 @@ import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import Secret from "../Pages/Secret/Secret";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
-import MyCart from "../Pages/Dashboard/Mycart/Mycart";
 import Dashboard from "../Layout/Dashboard";
 import AllUsers from "../Layout/AllUsers/AllUsers";
+import MyCart from "../Pages/Dashboard/MyCart/MyCart";
+import AddItem from "../Pages/Dashboard/AddItem/AddItem";
+import AdminRoute from "./AdminRoutes";
 // import Test from "../Pages/Home/Banner/test";
 
 export const router = createBrowserRouter([
@@ -68,6 +70,11 @@ export const router = createBrowserRouter([
       {
         path: "allusers",
         element: <AllUsers></AllUsers>,
+      },
+      {
+        path: "addItem",
+        // element: <AdminRoute><AddItem></AddItem></AdminRoute>
+        element: <AddItem></AddItem>,
       },
     ],
   },

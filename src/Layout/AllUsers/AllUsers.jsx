@@ -2,11 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet";
 import { FaTrashAlt, FaUserShield } from "react-icons/fa";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const AllUsers = () => {
+  const [axiosSecure] = useAxiosSecure();
   const { data: users = [], refetch } = useQuery(["users"], async () => {
-    const res = await fetch("http://localhost:5000/users");
-    return res.json();
+    const res = await axiosSecure.get("/users");
+    return res.data;
   });
 
   const handleMakeAdmin = (user) => {
@@ -20,7 +22,7 @@ const AllUsers = () => {
       confirmButtonText: "Yes, create him admin",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/users/${user._id}`, {
+        fetch(`http://localhost:5000/users/admin/${user._id}`, {
           method: "PATCH",
         })
           .then((res) => res.json())
@@ -51,7 +53,7 @@ const AllUsers = () => {
       confirmButtonText: "Yes, delete him!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/users/${user._id}`, {
+        fetch(`http://localhost:5000/users/admin/${user._id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
