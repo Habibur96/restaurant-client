@@ -10,7 +10,6 @@ const useAxiosSecure = () => {
   const { logOut } = useAuth();
   const navigate = useNavigate();
 
-
   useEffect(() => {
     axiosSecure.interceptors.request.use((config) => {
       const token = localStorage.getItem("access-token");
@@ -26,8 +25,7 @@ const useAxiosSecure = () => {
         if (
           error.response &&
           (error.response.status === 401 || error.response.status === 403)
-        ) 
-        {
+        ) {
           // await logOut();
           // navigate("/login");
         }
