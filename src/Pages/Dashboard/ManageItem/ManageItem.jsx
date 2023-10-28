@@ -3,12 +3,12 @@ import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import useMenu from "../../../Hooks/UseMenu";
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
-// import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const ManageItem = () => {
-  const [menu] = useMenu();
-  //   const [menu, , refetch] = useMenu();
-  //   const [axiosSecure] = useAxiosSecure();
+  // const [menu] = useMenu();
+    const [menu, , refetch] = useMenu();
+    const [axiosSecure] = useAxiosSecure();
   const handleDelete = (item) => {
     Swal.fire({
       title: "Are you sure?",
@@ -20,8 +20,15 @@ const ManageItem = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/menu/${item._id}`, {
-          mathod: "DELETE",
+        // fetch(`http://localhost:5000/menu/${item._id}`, {
+        //   mathod: "DELETE",
+        // })
+        axiosSecure.delete(`/menu/${item._id}`).then((res) => {
+          console.log("deleted res", res.data);
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire("Deleted!", "Your file has been deleted.", "success");
+          }
         })
           .then((res) => res.json())
           .then((data) => {
@@ -29,13 +36,6 @@ const ManageItem = () => {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
             }
           });
-        // axiosSecure.delete(`/menu/${item._id}`).then((res) => {
-        //   console.log("deleted res", res.data);
-        //   if (res.data.deletedCount > 0) {
-        //     refetch();
-        //     Swal.fire("Deleted!", "Your file has been deleted.", "success");
-        //   }
-        // });
       }
     });
   };

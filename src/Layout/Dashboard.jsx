@@ -121,11 +121,11 @@ import {
   FaBook,
 } from "react-icons/fa";
 import useCart from "../Hooks/useCart";
-// import useAdmin from "../Hooks/useAdmin";
+import useAdmin from "../Hooks/useAdmin";
 
 const Dashboard = () => {
-  const isAdmin = true;
-  // const [isAdmin] = useAdmin();
+  // const isAdmin = true;
+  const [isAdmin] = useAdmin();
 
   const [cart] = useCart();
 
@@ -153,7 +153,7 @@ const Dashboard = () => {
           {isAdmin ? (
             <>
               <li>
-                <NavLink to="/dashboard/home">
+                <NavLink to="/dashboard/adminhome">
                   <FaHome></FaHome> Admin Home
                 </NavLink>
               </li>

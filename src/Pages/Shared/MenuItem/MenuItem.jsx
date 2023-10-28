@@ -1,4 +1,4 @@
-import React from "react";
+
 
 const MenuItem = ({ item }) => {
   const { name, price, image, recipe } = item;
