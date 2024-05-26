@@ -17,6 +17,7 @@ import ManageItem from "../Pages/Dashboard/ManageItem/ManageItem";
 import Payment from "../Pages/Dashboard/payment/Payment";
 import UserHome from "../Pages/Dashboard/UserHome/UserHome";
 import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome";
+
 // import Test from "../Pages/Home/Banner/test";
 
 export const router = createBrowserRouter([
@@ -32,10 +33,11 @@ export const router = createBrowserRouter([
         path: "/menu",
         element: <Menu></Menu>,
       },
+     
 
       {
         path: "order/:category",
-        element: <Order></Order>,
+        element: <Order></ Order>,
       },
       {
         path: "/login",
@@ -55,7 +57,7 @@ export const router = createBrowserRouter([
           <PrivateRoute>
             <Secret></Secret>
           </PrivateRoute>
-        ),
+        ), 
       },
     ],
   },

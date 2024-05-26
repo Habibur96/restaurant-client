@@ -11,20 +11,20 @@ import { Helmet } from "react-helmet";
 const Order = () => {
   const categories = ["salad", "pizza", "soup", "dessert", "drinks"];
   const { category } = useParams();
+  console.log(category)
   const initialIndex = categories.indexOf(category);
-
+ console.log(initialIndex)
   const [tabindex, settabIndex] = useState(initialIndex);
   const [menu] = useMenu();
   const desserts = menu.filter((item) => item.category === "dessert");
   const soup = menu.filter((item) => item.category === "soup");
   const salad = menu.filter((item) => item.category === "salad");
   const pizza = menu.filter((item) => item.category === "pizza");
-
   const drinks = menu.filter((item) => item.category === "drinks");
   return (
     <div>
       <Helmet>
-        <title>Bistro Boss | Menu</title>
+        <title>Khana's | Menu</title>
       </Helmet>
       <Cover img={orderFoodImg} title="Order Food"></Cover>
       <Tabs defaultIndex={tabindex} onSelect={(index) => settabIndex(index)}>

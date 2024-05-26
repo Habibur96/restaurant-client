@@ -1,4 +1,4 @@
-import React from "react";
+
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import useMenu from "../../../Hooks/UseMenu";
 import { FaTrashAlt } from "react-icons/fa";

@@ -53,7 +53,7 @@ const SignUp = () => {
   return (
     <>
       <Helmet>
-        <title>Bistro Boss | Sign Up</title>
+        <title>Khana's | Sign Up</title>
       </Helmet>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
@@ -74,7 +74,7 @@ const SignUp = () => {
                   <span className="text-red-600">Name is required</span>
                 )}
               </div>
-              <div className="form-control">
+              {/* <div className="form-control">
                 <label className="label">
                   <span className="label-text">Photo URL</span>
                 </label>
@@ -87,7 +87,7 @@ const SignUp = () => {
                 {errors.photoURL && (
                   <span className="text-red-600">Photo URL is required</span>
                 )}
-              </div>
+              </div> */}
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>

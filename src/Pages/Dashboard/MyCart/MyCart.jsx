@@ -1,8 +1,9 @@
 import { Helmet } from "react-helmet-async";
-import useCart from "../../../Hooks/useCart";
+
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import useCart from "../../../Hooks/useCart";
 
 const MyCart = () => {
   const [cart, refetch] = useCart();
@@ -27,7 +28,8 @@ const MyCart = () => {
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
-              refetch();
+              console.log(data.deletedCount);
+                refetch();
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
             }
           });
@@ -38,7 +40,7 @@ const MyCart = () => {
   return (
     <div className="w-full">
       <Helmet>
-        <title>Bistro Boss | My Cart</title>
+        <title>Khana's | My Cart</title>
       </Helmet>
       <div className="uppercase font-semibold h-[60px] flex justify-evenly items-center">
         <h3 className="text-3xl">Total Items: {cart.length}</h3>

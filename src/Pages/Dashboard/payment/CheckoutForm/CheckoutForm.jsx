@@ -2,6 +2,9 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import useAuth from "../../../../Hooks/useAuth";
+import Swal from "sweetalert2";
+import useCart from "../../../../Hooks/useCart";
+
 // import "./CheckoutForm.css";
 
 const CheckoutForm = ({ cart, price }) => {
@@ -13,15 +16,14 @@ const CheckoutForm = ({ cart, price }) => {
   const [clientSecret, setClientSecret] = useState("");
   const [processing, setProcessing] = useState(false);
   const [transactionid, setTransactionid] = useState("");
-
+ 
   useEffect(() => {
-   if(price >0){
-    axiosSecure.post("/create-payment-intent", { price }).then((res) => {
-      setClientSecret(res.data.clientSecret);
-   })
-    };
+    if (price > 0) {
+      axiosSecure.post("/create-payment-intent", { price }).then((res) => {
+        setClientSecret(res.data.clientSecret);
+      });
+    }
   }, [price, axiosSecure]);
-  
 
   const handleSubmit = async (event) => {
     // Block native form submission.
@@ -88,9 +90,16 @@ const CheckoutForm = ({ cart, price }) => {
         itemName: cart.map((item) => item.name),
       };
       axiosSecure.post("/payments", payment).then((res) => {
-        console.log("dada", res.data);
-        if (res.data.result.insertedId) {
-          //display confirm
+        console.log("data", res.data);
+     
+        if (res.data?.result?.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Thank you for payment",
+            showConfirmButton: false,
+            timer: 1500,
+          });
         }
       });
     }

@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 const useMenu = () => {
   // const [menu, setMenu] = useState([]);
@@ -12,6 +12,7 @@ const useMenu = () => {
   //       setLoading(false);
   //     });
   // }, []);
+
   const {
     data: menu = [],
     isLoading: loading,
@@ -23,6 +24,7 @@ const useMenu = () => {
       return res.json();
     },
   });
+
   return [menu, loading, refetch];
 };
 

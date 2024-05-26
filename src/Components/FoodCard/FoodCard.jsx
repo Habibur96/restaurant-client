@@ -40,7 +40,8 @@ const FoodCard = ({ item }) => {
             });
           }
         });
-    } else {
+    } 
+    else {
       Swal.fire({
         title: "Please login to order the food",
         text: "You won't be able to revert this!",
